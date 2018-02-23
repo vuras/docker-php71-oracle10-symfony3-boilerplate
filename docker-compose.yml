@@ -1,0 +1,14 @@
+nginx:
+  build: docker/nginx
+  ports:
+    - "8080:80"
+  links:
+    - php
+  volumes:
+    - ./:/var/www/app
+
+php:
+  build: docker/php
+  volumes:
+    - ./:/var/www/app
+  working_dir: /var/www/app
